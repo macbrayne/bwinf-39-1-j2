@@ -1,0 +1,8 @@
+Feldgrösse x,y
+10 12
+startposition mit batterieladung
+0 5 6
+stationen mit batterieladung
+3 5 2
+5 5 3
+7 5 6
