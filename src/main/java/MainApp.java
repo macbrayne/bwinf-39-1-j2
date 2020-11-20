@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class MainApp {
     int[][] pattern = new int[][] {
             { 1, 1, 1 },
@@ -9,7 +11,7 @@ public class MainApp {
 
     public static void main(String[] args) {
         var app = new MainApp();
-        app.findBurrows(1);
+        app.findBurrows(0);
     }
 
     private void findBurrows(int fileNumber) {
@@ -26,6 +28,8 @@ public class MainApp {
             }
             System.out.println();
         }
+
+        System.out.println(containsPattern(feld, 1, 11));
     }
 
     private int[][] getData(String fileName){
@@ -42,6 +46,17 @@ public class MainApp {
         }
 
         return data;
+    }
 
+    private boolean containsPattern(int[][] data, int startColumn, int startRow) {
+        for(int i = 0; i < pattern.length - 1; i++) {
+            for(int j = 0; j < pattern[0].length - 1; j++) {
+                if(data[i + startColumn][j + startRow] != pattern[i][j]) {
+                    System.out.println(i + " " + j);
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
