@@ -22,9 +22,9 @@ public class MainApp {
 
 
         // feld testweise ausgeben
-        for (int i = 0; i < feld.length; i++) {
-            for (int j = 0; j < feld[0].length; j++) {
-                System.out.print(feld[i][j] == 1 ? "X" : " ");
+        for (int rowCounter = 0; rowCounter < feld.length; rowCounter++) {
+            for (int columnCounter = 0; columnCounter < feld[0].length; columnCounter++) {
+                System.out.print(feld[rowCounter][columnCounter] == 1 ? "X" : " ");
             }
             System.out.println();
         }
@@ -48,11 +48,10 @@ public class MainApp {
         return data;
     }
 
-    private boolean containsPattern(int[][] data, int startColumn, int startRow) {
+    private boolean containsPattern(int[][] data, int startRow, int startColumn) {
         for(int i = 0; i < pattern.length - 1; i++) {
             for(int j = 0; j < pattern[0].length - 1; j++) {
-                if(data[i + startColumn][j + startRow] != pattern[i][j]) {
-                    System.out.println(i + " " + j);
+                if(data[i + startRow][j + startColumn] != pattern[i][j]) {
                     return false;
                 }
             }
