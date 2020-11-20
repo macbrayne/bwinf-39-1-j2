@@ -24,20 +24,16 @@ public class MainApp {
         }
     }
 
-    private String[][] getData(String dateiname){
-
-        int zeilen;
-        int spalten;
-
-        String[] s = DataUtils.loadStrings(dateiname);
-        spalten = Integer.parseInt(s[0]);
-        zeilen  = Integer.parseInt(s[1]);
-        String[][] feld = new String[zeilen][spalten];
-        for (int i = 0; i < zeilen; i++) {
-            feld[i] = s[i+2].split("");
+    private String[][] getData(String fileName){
+        String[] s = DataUtils.loadStrings(fileName);
+        int rows  = Integer.parseInt(s[0]);
+        int columns = Integer.parseInt(s[1]);
+        String[][] field = new String[columns][rows];
+        for (int i = 0; i < columns; i++) {
+            field[i] = s[i+2].split("");
         }
 
-        return feld;
+        return field;
 
     }
 
