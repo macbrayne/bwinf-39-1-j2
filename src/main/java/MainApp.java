@@ -11,7 +11,9 @@ public class MainApp {
 
     public static void main(String[] args) {
         var app = new MainApp();
-        app.findBurrows(0);
+        for(int i = 0; i < 6; i++) {
+            app.findBurrows(i);
+        }
     }
 
     private void findBurrows(int fileNumber) {
@@ -25,12 +27,12 @@ public class MainApp {
         int burrowCount = 0;
         for (int rowCounter = 0; rowCounter < feld.length; rowCounter++) {
             for (int columnCounter = 0; columnCounter < feld[0].length; columnCounter++) {
-                System.out.print(feld[rowCounter][columnCounter] == 1 ? "X" : " ");
+                // System.out.print(feld[rowCounter][columnCounter] == 1 ? "X" : " ");
                 if(containsPattern(feld, rowCounter, columnCounter)) {
                     burrowCount++;
                 }
             }
-            System.out.println();
+            // System.out.println();
         }
         System.out.println(burrowCount);
 
@@ -38,6 +40,9 @@ public class MainApp {
 
     private boolean containsPattern(int[][] data, int startRow, int startColumn) {
         if(startRow + pattern.length > data.length) {
+            return false;
+        }
+        if(startColumn + pattern[0].length > data[0].length) {
             return false;
         }
         for(int i = 0; i < pattern.length - 1; i++) {
