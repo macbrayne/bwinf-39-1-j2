@@ -1,4 +1,12 @@
 public class MainApp {
+    int[][] pattern = new int[][] {
+            { 1, 1, 1 },
+            { 1, 0, 1 },
+            { 1, 0, 1 },
+            { 1, 1, 1 }
+    };
+    char symbol = '#';
+
     public static void main(String[] args) {
         var app = new MainApp();
         app.findBurrows(1);
@@ -22,12 +30,12 @@ public class MainApp {
 
     private String[][] getData(String fileName){
         String[] file = DataUtils.loadStrings(fileName);
-        int rows  = Integer.parseInt(file[0]);
-        int columns = Integer.parseInt(file[1]);
+        int columns  = Integer.parseInt(file[0]);
+        int rows = Integer.parseInt(file[1]);
 
 
-        String[][] data = new String[columns][rows];
-        for (int i = 0; i < columns; i++) {
+        String[][] data = new String[rows][columns];
+        for (int i = 0; i < rows; i++) {
             data[i] = file[i+2].split("");
         }
 
