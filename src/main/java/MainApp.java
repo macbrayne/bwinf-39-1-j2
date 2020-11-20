@@ -20,15 +20,15 @@ public class MainApp {
         // einlesen des feldes
         // in dem array "feld" stehen "x" und " " wie in der eingabedatei
         //name der datei als uebergabenparameter eingeben
-        int[][] feld = getData("karte" + fileNumber + ".txt");
+        int[][] field = getData("karte" + fileNumber + ".txt");
 
 
         // feld testweise ausgeben
         int burrowCount = 0;
-        for (int rowCounter = 0; rowCounter < feld.length; rowCounter++) {
-            for (int columnCounter = 0; columnCounter < feld[0].length; columnCounter++) {
+        for (int rowCounter = 0; rowCounter < field.length; rowCounter++) {
+            for (int columnCounter = 0; columnCounter < field[0].length; columnCounter++) {
                 // System.out.print(feld[rowCounter][columnCounter] == 1 ? "X" : " ");
-                if(containsPattern(feld, rowCounter, columnCounter)) {
+                if(containsPattern(field, rowCounter, columnCounter)) {
                     burrowCount++;
                 }
             }
