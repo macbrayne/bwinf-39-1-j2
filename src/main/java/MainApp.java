@@ -1,8 +1,4 @@
-import java.util.Arrays;
-
 public class MainApp {
-    String fileName = ("data/ks_4_0");
-
     public static void main(String[] args) {
         var app = new MainApp();
         app.findBurrows();
@@ -25,15 +21,17 @@ public class MainApp {
     }
 
     private String[][] getData(String fileName){
-        String[] s = DataUtils.loadStrings(fileName);
-        int rows  = Integer.parseInt(s[0]);
-        int columns = Integer.parseInt(s[1]);
-        String[][] field = new String[columns][rows];
+        String[] file = DataUtils.loadStrings(fileName);
+        int rows  = Integer.parseInt(file[0]);
+        int columns = Integer.parseInt(file[1]);
+
+
+        String[][] data = new String[columns][rows];
         for (int i = 0; i < columns; i++) {
-            field[i] = s[i+2].split("");
+            data[i] = file[i+2].split("");
         }
 
-        return field;
+        return data;
 
     }
 
