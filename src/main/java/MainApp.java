@@ -1,13 +1,11 @@
-import java.util.Arrays;
-
 public class MainApp {
-    int[][] pattern = new int[][] {
+    final int[][] pattern = new int[][] {
             { 1, 1, 1 },
             { 1, 0, 1 },
             { 1, 0, 1 },
             { 1, 1, 1 }
     };
-    char symbol = 'X';
+    final char symbol = 'X';
 
     public static void main(String[] args) {
         var app = new MainApp();
