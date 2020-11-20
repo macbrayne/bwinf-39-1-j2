@@ -1,14 +1,14 @@
 public class MainApp {
     public static void main(String[] args) {
         var app = new MainApp();
-        app.findBurrows();
+        app.findBurrows(1);
     }
 
-    private void findBurrows() {
+    private void findBurrows(int fileNumber) {
         // einlesen des feldes
         // in dem array "feld" stehen "x" und " " wie in der eingabedatei
         //name der datei als uebergabenparameter eingeben
-        String[][] feld = getData("karte1.txt");
+        String[][] feld = getData("karte" + fileNumber + ".txt");
 
 
         // feld testweise ausgeben
