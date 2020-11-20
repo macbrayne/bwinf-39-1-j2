@@ -34,7 +34,7 @@ public class MainApp {
             }
             // System.out.println();
         }
-        System.out.println(burrowCount);
+        System.out.println("Dateinummer: " + fileNumber + ", Gefundene Bauten: " + burrowCount + "");
 
     }
 
