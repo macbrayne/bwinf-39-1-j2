@@ -22,17 +22,24 @@ public class MainApp {
 
 
         // feld testweise ausgeben
+        int burrowCount = 0;
         for (int rowCounter = 0; rowCounter < feld.length; rowCounter++) {
             for (int columnCounter = 0; columnCounter < feld[0].length; columnCounter++) {
                 System.out.print(feld[rowCounter][columnCounter] == 1 ? "X" : " ");
+                if(containsPattern(feld, rowCounter, columnCounter)) {
+                    burrowCount++;
+                }
             }
             System.out.println();
         }
+        System.out.println(burrowCount);
 
-        System.out.println(containsPattern(feld, 1, 11));
     }
 
     private boolean containsPattern(int[][] data, int startRow, int startColumn) {
+        if(startRow + pattern.length > data.length) {
+            return false;
+        }
         for(int i = 0; i < pattern.length - 1; i++) {
             for(int j = 0; j < pattern[0].length - 1; j++) {
                 if(data[i + startRow][j + startColumn] != pattern[i][j]) {
