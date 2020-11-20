@@ -16,7 +16,7 @@ public class MainApp {
         // einlesen des feldes
         // in dem array "feld" stehen "x" und " " wie in der eingabedatei
         //name der datei als uebergabenparameter eingeben
-        String[][] feld = getData("karte" + fileNumber + ".txt");
+        char[][] feld = getData("karte" + fileNumber + ".txt");
 
 
         // feld testweise ausgeben
@@ -28,15 +28,15 @@ public class MainApp {
         }
     }
 
-    private String[][] getData(String fileName){
+    private char[][] getData(String fileName){
         String[] file = DataUtils.loadStrings(fileName);
         int columns  = Integer.parseInt(file[0]);
         int rows = Integer.parseInt(file[1]);
 
 
-        String[][] data = new String[rows][columns];
+        char[][] data = new char[rows][columns];
         for (int i = 0; i < rows; i++) {
-            data[i] = file[i+2].split("");
+            data[i] = file[i+2].toCharArray();
         }
 
         return data;
