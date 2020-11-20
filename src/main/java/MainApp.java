@@ -32,6 +32,17 @@ public class MainApp {
         System.out.println(containsPattern(feld, 1, 11));
     }
 
+    private boolean containsPattern(int[][] data, int startRow, int startColumn) {
+        for(int i = 0; i < pattern.length - 1; i++) {
+            for(int j = 0; j < pattern[0].length - 1; j++) {
+                if(data[i + startRow][j + startColumn] != pattern[i][j]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     private int[][] getData(String fileName){
         String[] file = DataUtils.loadStrings(fileName);
         int columns  = Integer.parseInt(file[0]);
@@ -46,16 +57,5 @@ public class MainApp {
         }
 
         return data;
-    }
-
-    private boolean containsPattern(int[][] data, int startRow, int startColumn) {
-        for(int i = 0; i < pattern.length - 1; i++) {
-            for(int j = 0; j < pattern[0].length - 1; j++) {
-                if(data[i + startRow][j + startColumn] != pattern[i][j]) {
-                    return false;
-                }
-            }
-        }
-        return true;
     }
 }
