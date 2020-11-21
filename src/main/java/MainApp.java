@@ -10,7 +10,7 @@ public class MainApp {
     };
 
     /**
-     * Das Zeichen welches in den Rohdaten einen Maulwurfhügel kennzeichnet
+     * Das Zeichen welches in den Rohdaten einen Maulwurfbau kennzeichnet
      */
     final char symbol = 'X';
 
@@ -22,12 +22,13 @@ public class MainApp {
     }
 
     /**
-     * Liest ein Feld ein, sucht nach Baulwurfhügeln und gibt ihre Anzahl aus.
+     * Liest ein Feld ein, sucht nach Baulwurfbauen und gibt ihre Anzahl aus.
      * @param fileName Name der Datei mit dem Feld
      */
     private void findBurrows(String fileName) {
         boolean[][] field = parseData(fileName);
 
+        // Durchlaufen des gesamten Spielfeldes, um nach Baulwurfbauen zu suchen
         int burrowCount = 0;
         for (int rowCounter = 0; rowCounter < field.length; rowCounter++) {
             for (int columnCounter = 0; columnCounter < field[0].length; columnCounter++) {
@@ -36,9 +37,16 @@ public class MainApp {
                 }
             }
         }
-        System.out.println("Baulwurfhügelanzahl in " + fileName + ": " + burrowCount);
+        System.out.println("Baulwurfbauanzahl in " + fileName + ": " + burrowCount);
     }
 
+    /**
+     * Prüft, ob in einem Areal das Baulwurfbaumuster gefunden werden kann
+     * @param data
+     * @param startRow
+     * @param startColumn
+     * @return
+     */
     private boolean containsPattern(boolean[][] data, int startRow, int startColumn) {
         if(startRow + pattern.length > data.length || startColumn + pattern[0].length > data[0].length) {
             return false;
