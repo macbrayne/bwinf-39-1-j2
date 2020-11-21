@@ -1,9 +1,9 @@
 public class MainApp {
-    final int[][] pattern = new int[][] {
-            { 1, 1, 1 },
-            { 1, 0, 1 },
-            { 1, 0, 1 },
-            { 1, 1, 1 }
+    final boolean[][] pattern = new boolean[][] {
+            { true, true, true },
+            { true, false, true },
+            { true, false, true },
+            { true, true, true }
     };
     final char symbol = 'X';
 
@@ -18,7 +18,7 @@ public class MainApp {
         // einlesen des feldes
         // in dem array "feld" stehen "x" und " " wie in der eingabedatei
         //name der datei als uebergabenparameter eingeben
-        int[][] field = getData("karte" + fileNumber + ".txt");
+        boolean[][] field = getData("karte" + fileNumber + ".txt");
 
 
         // feld testweise ausgeben
@@ -36,7 +36,7 @@ public class MainApp {
 
     }
 
-    private boolean containsPattern(int[][] data, int startRow, int startColumn) {
+    private boolean containsPattern(boolean[][] data, int startRow, int startColumn) {
         if(startRow + pattern.length > data.length || startColumn + pattern[0].length > data[0].length) {
             return false;
         }
@@ -50,16 +50,16 @@ public class MainApp {
         return true;
     }
 
-    private int[][] getData(String fileName){
+    private boolean[][] getData(String fileName){
         String[] file = DataUtils.loadStrings(fileName);
         int columns  = Integer.parseInt(file[0]);
         int rows = Integer.parseInt(file[1]);
 
-        int[][] data = new int[rows][columns];
+        boolean[][] data = new boolean[rows][columns];
         for (int i = 0; i < rows; i++) {
             char[] lineCharacters = file[i+2].toCharArray();
             for(int j = 0; j < columns; j++) {
-                data[i][j] = lineCharacters[j] == symbol ? 1 : 0;
+                data[i][j] = lineCharacters[j] == symbol;
             }
         }
 
