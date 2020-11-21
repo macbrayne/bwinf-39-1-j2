@@ -37,10 +37,7 @@ public class MainApp {
     }
 
     private boolean containsPattern(int[][] data, int startRow, int startColumn) {
-        if(startRow + pattern.length > data.length) {
-            return false;
-        }
-        if(startColumn + pattern[0].length > data[0].length) {
+        if(startRow + pattern.length > data.length || startColumn + pattern[0].length > data[0].length) {
             return false;
         }
         for(int i = 0; i < pattern.length - 1; i++) {
