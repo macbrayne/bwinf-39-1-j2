@@ -17,15 +17,15 @@ public class MainApp {
     public static void main(String[] args) {
         var app = new MainApp();
         for(int i = 0; i <= 6; i++) {
-            app.findBurrows(i);
+            app.findBurrows("karte" + i + ".txt");
         }
     }
 
-    private void findBurrows(int fileNumber) {
+    private void findBurrows(String fileName) {
         // einlesen des feldes
         // in dem array "feld" stehen "x" und " " wie in der eingabedatei
         //name der datei als uebergabenparameter eingeben
-        boolean[][] field = getData("karte" + fileNumber + ".txt");
+        boolean[][] field = getData(fileName);
 
         int burrowCount = 0;
         for (int rowCounter = 0; rowCounter < field.length; rowCounter++) {
@@ -35,7 +35,7 @@ public class MainApp {
                 }
             }
         }
-        System.out.println("Baulwurfhügelanzahl in karte" + fileNumber + ": " + burrowCount);
+        System.out.println("Baulwurfhügelanzahl in " + fileName + ": " + burrowCount);
 
     }
 
