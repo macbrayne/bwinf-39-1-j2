@@ -20,17 +20,13 @@ public class MainApp {
         //name der datei als uebergabenparameter eingeben
         boolean[][] field = getData("karte" + fileNumber + ".txt");
 
-
-        // feld testweise ausgeben
         int burrowCount = 0;
         for (int rowCounter = 0; rowCounter < field.length; rowCounter++) {
             for (int columnCounter = 0; columnCounter < field[0].length; columnCounter++) {
-                //System.out.print(field[rowCounter][columnCounter] ? symbol : " ");
                 if(containsPattern(field, rowCounter, columnCounter)) {
                     burrowCount++;
                 }
             }
-            // System.out.println();
         }
         System.out.println("Baulwurfhügelanzahl in karte" + fileNumber + ": " + burrowCount);
 
@@ -47,7 +43,6 @@ public class MainApp {
                 }
             }
         }
-        // System.out.println("Found in R:" + startRow + " C:" + startColumn);
         return true;
     }
 
