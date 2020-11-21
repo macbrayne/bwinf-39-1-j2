@@ -32,7 +32,7 @@ public class MainApp {
             }
             // System.out.println();
         }
-        System.out.println("Dateinummer: " + fileNumber + ", Gefundene Bauten: " + burrowCount + "");
+        System.out.println("Baulwurfhügelanzahl in karte" + fileNumber + ": " + burrowCount);
 
     }
 
