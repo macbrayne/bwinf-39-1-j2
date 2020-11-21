@@ -1,10 +1,17 @@
 public class MainApp {
+    /**
+     * Das Muster nach welchem im Feld gesucht wird
+     */
     final boolean[][] pattern = new boolean[][] {
             { true, true, true },
             { true, false, true },
             { true, false, true },
             { true, true, true }
     };
+
+    /**
+     * Das Zeichen welches in den Rohdaten einen Maulwurfhügel kennzeichnet
+     */
     final char symbol = 'X';
 
     public static void main(String[] args) {
