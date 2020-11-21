@@ -9,7 +9,7 @@ public class MainApp {
 
     public static void main(String[] args) {
         var app = new MainApp();
-        for(int i = 0; i < 6; i++) {
+        for(int i = 0; i <= 6; i++) {
             app.findBurrows(i);
         }
     }
