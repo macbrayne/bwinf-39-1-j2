@@ -25,7 +25,7 @@ public class MainApp {
         // einlesen des feldes
         // in dem array "feld" stehen "x" und " " wie in der eingabedatei
         //name der datei als uebergabenparameter eingeben
-        boolean[][] field = getData(fileName);
+        boolean[][] field = parseData(fileName);
 
         int burrowCount = 0;
         for (int rowCounter = 0; rowCounter < field.length; rowCounter++) {
@@ -53,7 +53,7 @@ public class MainApp {
         return true;
     }
 
-    private boolean[][] getData(String fileName){
+    private boolean[][] parseData(String fileName){
         String[] file = DataUtils.loadStrings(fileName);
         int columns  = Integer.parseInt(file[0]);
         int rows = Integer.parseInt(file[1]);
