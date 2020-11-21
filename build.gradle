@@ -4,14 +4,6 @@ plugins {
 }
 
 group 'de.bwinf.bundeswettbewerb.39'
-version '1.0-SNAPSHOT'
 
 sourceCompatibility = targetCompatibility = '1.14'
 mainClassName  = 'MainApp'
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-}
