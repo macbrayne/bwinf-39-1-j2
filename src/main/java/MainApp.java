@@ -21,10 +21,11 @@ public class MainApp {
         }
     }
 
+    /**
+     * Liest ein Feld ein, sucht nach Baulwurfhügeln und gibt ihre Anzahl aus.
+     * @param fileName Name der Datei mit dem Feld
+     */
     private void findBurrows(String fileName) {
-        // einlesen des feldes
-        // in dem array "feld" stehen "x" und " " wie in der eingabedatei
-        //name der datei als uebergabenparameter eingeben
         boolean[][] field = parseData(fileName);
 
         int burrowCount = 0;
@@ -36,7 +37,6 @@ public class MainApp {
             }
         }
         System.out.println("Baulwurfhügelanzahl in " + fileName + ": " + burrowCount);
-
     }
 
     private boolean containsPattern(boolean[][] data, int startRow, int startColumn) {
@@ -53,15 +53,24 @@ public class MainApp {
         return true;
     }
 
-    private boolean[][] parseData(String fileName){
-        String[] file = DataUtils.loadStrings(fileName);
-        int columns  = Integer.parseInt(file[0]);
-        int rows = Integer.parseInt(file[1]);
+    /**
+     * @param fileName Name der Datei mit dem Feld
+     * @return Ein zwei-dimensionales boolean-Array als Feld
+     */
+    private boolean[][] parseData(String fileName) {
+        String[] file = DataUtils.loadStrings(fileName); // Einlesen der Datei
+        int columns  = Integer.parseInt(file[0]); // Breite des Felds
+        int rows = Integer.parseInt(file[1]); // Höhe des Feldes
 
+        // Verarbeiten der Datei
+
+        // Vorbereiten des Rückgabewertes
         boolean[][] data = new boolean[rows][columns];
         for (int i = 0; i < rows; i++) {
+            // Umwandeln der Zeile in Zeichen
             char[] lineCharacters = file[i+2].toCharArray();
             for(int j = 0; j < columns; j++) {
+                // Konvertierung in ein Boolean zur Vereinfachung der weiteren Verarbeitung
                 data[i][j] = lineCharacters[j] == symbol;
             }
         }
