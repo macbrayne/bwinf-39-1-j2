@@ -6,8 +6,7 @@ plugins {
 group 'de.bwinf.bundeswettbewerb.39'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 1.14
-targetCompatibility = 1.14
+sourceCompatibility = targetCompatibility = '1.14'
 mainClassName  = 'MainApp'
 
 repositories {
