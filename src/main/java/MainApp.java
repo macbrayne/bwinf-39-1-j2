@@ -25,7 +25,7 @@ public class MainApp {
         int burrowCount = 0;
         for (int rowCounter = 0; rowCounter < field.length; rowCounter++) {
             for (int columnCounter = 0; columnCounter < field[0].length; columnCounter++) {
-                // System.out.print(feld[rowCounter][columnCounter] == 1 ? "X" : " ");
+                //System.out.print(field[rowCounter][columnCounter] ? symbol : " ");
                 if(containsPattern(field, rowCounter, columnCounter)) {
                     burrowCount++;
                 }
@@ -40,13 +40,14 @@ public class MainApp {
         if(startRow + pattern.length > data.length || startColumn + pattern[0].length > data[0].length) {
             return false;
         }
-        for(int i = 0; i < pattern.length - 1; i++) {
-            for(int j = 0; j < pattern[0].length - 1; j++) {
+        for(int i = 0; i < pattern.length; i++) {
+            for(int j = 0; j < pattern[0].length; j++) {
                 if(data[i + startRow][j + startColumn] != pattern[i][j]) {
                     return false;
                 }
             }
         }
+        // System.out.println("Found in R:" + startRow + " C:" + startColumn);
         return true;
     }
 
