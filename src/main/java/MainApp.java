@@ -42,22 +42,27 @@ public class MainApp {
 
     /**
      * Prüft, ob in einem Areal das Baulwurfbaumuster gefunden werden kann
-     * @param data
-     * @param startRow
-     * @param startColumn
-     * @return
+     * @param field Das Feld in welchem gesucht werden soll
+     * @param startRow Die Reihe in der angefangen werden soll das Muster zu prüfen
+     * @param startColumn Die Spalte in der angefangen werden soll das Muster zu prüfen
+     * @return Die Präsenz eines Baulwurfbaus
      */
-    private boolean containsPattern(boolean[][] data, int startRow, int startColumn) {
-        if(startRow + pattern.length > data.length || startColumn + pattern[0].length > data[0].length) {
+    private boolean containsPattern(boolean[][] field, int startRow, int startColumn) {
+        // Wenn, nicht das gesamte Areal geprüft werden kann, kann dort auch kein Baulwurfbau sein
+        if(startRow + pattern.length > field.length || startColumn + pattern[0].length > field[0].length) {
             return false;
         }
+        // Durchlaufen und Prüfen des Musters
         for(int i = 0; i < pattern.length; i++) {
             for(int j = 0; j < pattern[0].length; j++) {
-                if(data[i + startRow][j + startColumn] != pattern[i][j]) {
+                // Wenn eine Abweichung erkannt wurde, muss nicht weiter gesucht werden:
+                // Es kann dort keinen Baulwurfbau geben.
+                if(field[i + startRow][j + startColumn] != pattern[i][j]) {
                     return false;
                 }
             }
         }
+        // Wenn alle Planquadrate übereinstimmen, muss es ein Baulwurfbau sein
         return true;
     }
 
