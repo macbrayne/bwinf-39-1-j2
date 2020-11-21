@@ -9,18 +9,15 @@ public final class DataUtils {
         try {
             return new File(ClassLoader.getSystemClassLoader().getResource(file).toURI());
         } catch (URISyntaxException | NullPointerException e) {
-            System.err.println(file);
-            e.printStackTrace();
+            throw new RuntimeException(file + " cannot be accessed", e);
         }
-        throw new NullPointerException(file + " cannot be accessed");
     }
 
     public static String[] loadStrings(String file) {
         try {
             return Files.readAllLines(getFromResourceDataPath(file).toPath()).toArray(new String[] {});
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException | RuntimeException e) {
+            throw new RuntimeException(file + " cannot be read", e);
         }
-        return null;
     }
 }
