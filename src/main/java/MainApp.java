@@ -14,8 +14,12 @@ public class MainApp {
      */
     final char symbol = 'X';
 
+    /**
+     * Einstiegspunkt des Programms
+     */
     public static void main(String[] args) {
         var app = new MainApp();
+        // Einlesen der Beispieldateien
         for(int i = 0; i <= 6; i++) {
             app.findBurrows("karte" + i + ".txt");
         }
