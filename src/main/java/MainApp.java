@@ -62,6 +62,13 @@ public class MainApp {
                 }
             }
         }
+        // Wenn das Muster gefunden wurde, wird es aus dem Feld entfernt, um mögliche Überschneidungen zu verhindern
+        for(int i = 0; i < pattern.length; i++) {
+            for(int j = 0; j < pattern[0].length; j++) {
+                // Wenn ein Feld untersucht wurde
+                field[i + startRow][j + startColumn] = false;
+            }
+        }
         // Wenn alle Planquadrate übereinstimmen, muss es ein Baulwurfbau sein
         return true;
     }
