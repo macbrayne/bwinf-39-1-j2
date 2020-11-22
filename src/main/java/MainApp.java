@@ -28,7 +28,7 @@ public class MainApp {
     private void findBurrows(String fileName) {
         boolean[][] field = parseData(fileName);
 
-        // Durchlaufen des gesamten Spielfeldes, um nach Baulwurfbauen zu suchen
+        // Durchlaufen des gesamten Feldes, um nach Baulwurfbauen zu suchen
         int burrowCount = 0;
         for (int rowCounter = 0; rowCounter < field.length; rowCounter++) {
             for (int columnCounter = 0; columnCounter < field[0].length; columnCounter++) {
