@@ -53,7 +53,7 @@ public class MainApp {
      * @return Die Präsenz eines Baulwurfbaus
      */
     private boolean containsPattern(boolean[][] field, int startRow, int startColumn) {
-        // Wenn, nicht das gesamte Areal geprüft werden kann, kann dort auch kein Baulwurfbau sein
+        // Wenn nicht das gesamte Areal geprüft werden kann, kann dort auch kein Baulwurfbau sein
         if(startRow + pattern.length > field.length || startColumn + pattern[0].length > field[0].length) {
             return false;
         }
